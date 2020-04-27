@@ -3,16 +3,11 @@ html {
   font-size: 12px;
 }
 
-body {
-  margin: 0;
-  height: 100%;
-}
-
 html,
 body,
 #main {
+  margin: 0;
   height: 100%;
-  overflow-x: hidden;
 }
 
 .List {
@@ -27,5 +22,20 @@ body,
 }
 
 .ListItemEven {
+  background-color: #f8f8f0;
+}
+
+.Grid {
+  border: 1px solid #d9dddd;
+}
+
+.GridItemEven,
+.GridItemOdd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.GridItemEven {
   background-color: #f8f8f0;
 }
