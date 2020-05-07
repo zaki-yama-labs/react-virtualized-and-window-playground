@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 
-import { App } from "./App";
+// import { List } from "./List";
+import { Grid } from "./Grid";
 
-render(<App />, document.getElementById("main"));
+render(<Grid />, document.getElementById("main"));
