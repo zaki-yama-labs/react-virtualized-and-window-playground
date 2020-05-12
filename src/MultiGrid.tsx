@@ -3,6 +3,7 @@ import {
   MultiGrid as VirtualizedMultiGrid,
   AutoSizer,
   GridCellProps,
+  ScrollbarPresenceParams,
 } from "react-virtualized";
 
 const STYLE = {
@@ -46,11 +47,17 @@ export class MultiGrid extends React.PureComponent {
       </div>
     );
   }
+  onScrollbarPresenceChange(params: ScrollbarPresenceParams) {
+    console.log("---------------");
+    console.log("horizontal", params.horizontal);
+    console.log("vertical", params.vertical);
+    console.log("size", params.size);
+  }
 
   render() {
     return (
-      <AutoSizer disableHeight>
-        {({ width }) => (
+      <AutoSizer>
+        {({ width, height }) => (
           <VirtualizedMultiGrid
             {...this.state}
             cellRenderer={this._cellRenderer}
@@ -58,7 +65,7 @@ export class MultiGrid extends React.PureComponent {
             columnCount={50}
             enableFixedColumnScroll
             enableFixedRowScroll
-            height={300}
+            height={height}
             rowHeight={40}
             rowCount={100}
             style={STYLE}
@@ -68,6 +75,7 @@ export class MultiGrid extends React.PureComponent {
             width={width}
             hideTopRightGridScrollbar={false}
             hideBottomLeftGridScrollbar
+            onScrollbarPresenceChange={this.onScrollbarPresenceChange}
           />
         )}
       </AutoSizer>
